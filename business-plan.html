@@ -36,8 +36,10 @@ async function unlock() {
   const pw = document.getElementById("pw").value;
   const h = await sha256(pw);
   if (h === HASH) {
-    const html = atob(DATA);
-    const blob = new Blob([html], {type: 'text/html;charset=utf-8'});
+    const binary = atob(DATA);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    const blob = new Blob([bytes], {type: 'text/html;charset=utf-8'});
     window.location.href = URL.createObjectURL(blob);
   } else {
     document.getElementById("err").style.display = "block";
