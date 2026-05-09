@@ -227,6 +227,49 @@ nav {
   display: flex; flex-wrap: wrap; gap: 0.85rem;
   align-items: center;
 }
+.spots-counter {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--ink-line-2);
+  text-decoration: none;
+  color: var(--ink);
+  cursor: pointer;
+  margin-left: 1rem;
+  vertical-align: top;
+  max-width: 200px;
+  transition: border-color 0.15s;
+}
+.spots-counter:hover { border-color: var(--ink); }
+.spots-label {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.spots-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.spots-icon {
+  width: 10px;
+  height: 10px;
+}
+.spots-icon.filled { background: var(--red); }
+.spots-icon.next { background: transparent; border: 1.5px solid var(--red); display: inline-flex; align-items: center; justify-content: center; }
+.spots-icon.next::after { content: '›'; font-size: 8px; line-height: 1; color: var(--red); }
+.spots-icon.empty { background: transparent; border: 1.5px solid var(--ink-line-2); }
+.spots-footer {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
 .btn-stamp {
   font-family: var(--mono); font-weight: 700; font-size: 13px;
   letter-spacing: 0.1em; text-transform: uppercase;
@@ -399,6 +442,13 @@ section { position: relative; z-index: 2; }
   text-align: right;
   white-space: nowrap;
 }
+.section-deck {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  max-width: 38ch;
+}
 
 /* ───── PREMISE ROW ───── */
 .premise {
@@ -467,6 +517,7 @@ section { position: relative; z-index: 2; }
   font-weight: 600;
   text-align: right;
 }
+.aside-table tr.aside-highlight td { font-weight: 700; border-top: 1px solid var(--ink-line); padding-top: 0.6rem; margin-top: 0.25rem; }
 
 /* ───── STARTING LINEUP ───── */
 .lineup {
@@ -2056,22 +2107,50 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-meta-row">
-    <div><strong>SECTION A</strong> · The Premise</div>
     <div><strong>OPENING</strong> · <span class="red">FALL 2026</span> · East County, CA</div>
   </div>
 
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="hero-cat" id="hero-cat">FEATURE STORY · NO. 01</div>
       <h1 class="hero-headline" id="hero-headline">
         A baseball facility built <em>for you</em>
       </h1>
       <p class="hero-dek" id="hero-dek" style="font-family: &quot;DM Sans&quot;">
-        Three hitting cages and a dedicated pitching lane. A named coach you can book by the hour. A parent lounge with couches, Wi-Fi, and clear views into all of it. <strong><span id="hero-spots-left">5</span> / 25 spots claimed</strong> starting at $159/mo. For your first year.
+        Three hitting cages and a dedicated pitching lane. A named coach you can book by the hour. A parent lounge with couches, Wi-Fi, and clear views into all of it. <strong><span id="hero-spots-left">5</span> of 25 spots claimed</strong> starting at $159/mo. For your first year.
       </p>
       <div class="hero-cta-row">
         <a href="#founding" class="btn-stamp">Claim My Spot <span class="arrow">→</span></a>
-        <a href="#scorecard" class="btn-link" style="margin-left: 1rem;">See the price list</a>
+        <a href="#founding" class="spots-counter" aria-label="5 of 25 founding spots claimed">
+          <div class="spots-label">5 of 25 Founding Spots Claimed</div>
+          <div class="spots-icons">
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon next"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+          </div>
+          <div class="spots-footer">Yours for $159/mo · First year.</div>
+        </a>
       </div>
     </div>
 
@@ -2111,7 +2190,6 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
         <span class="est-bot">East Cnty</span>
       </div>
 
-      <div class="corner-stamp bl">FIG. 01</div>
     </div>
   </div>
 
@@ -2121,10 +2199,9 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 
 <section class="exhibit" aria-label="Inside the building">
   <div class="exhibit-head">
-    <div class="exhibit-eyebrow">Exhibit B · Inside the Building</div>
+    <div class="exhibit-eyebrow">Inside the Building</div>
 
     <div class="exhibit-meta">
-      PLATE NO. 01 — 04<br>
       PHOTOG. · TBD · 2026
     </div>
   </div>
@@ -2183,26 +2260,21 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     <div class="section-num"><span class="big">01</span>
     </div>
     <h2 class="section-title">Different <em>by design</em></h2>
-    <div class="section-meta">FILE NO. HD-01</div>
   </div>
 
   <div class="premise">
     <div class="premise-copy">
       <p>Most facilities get built around the cage, and the family standing in it is an afterthought. You drive out there, find a corner to stand in, and hope the coach from last week shows up again.</p>
       <p class="pull">Have a Day is the other way around.</p>
-      <p>The parent area came first. The ability to book a named coach by the hour came first. Pricing you can explain to your spouse in one sentence came first. The cages were built inside that decision — not the other way around.</p>
     </div>
     <aside class="premise-aside">
       <div class="aside-h">By the numbers</div>
       <table class="aside-table">
         <tr><td>Hitting cages, full size</td><td>3</td></tr>
         <tr><td>Pitching lane</td><td>1</td></tr>
-        <tr><td>Comfortable seating</td><td>Yes</td></tr>
-        <tr><td>Wi-Fi, outlets</td><td>Yes / yes</td></tr>
         <tr><td>Drive from Santee</td><td>~ 10 min</td></tr>
-        <tr><td>Drive from La Mesa</td><td>~ 10 min</td></tr>
         <tr><td>Drive from Rancho San Diego</td><td>~ 15 min</td></tr>
-        <tr><td>Phone-tag to book</td><td>0</td></tr>
+        <tr class="aside-highlight"><td>Phone-tag to book</td><td>0</td></tr>
       </table>
     </aside>
   </div>
@@ -2221,7 +2293,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     <div class="lounge-art">
       <div class="lounge-art-grid"></div>
       <div class="lounge-art-top">
-        <div class="lounge-art-stamp">FIG. 02 · FLOOR PLAN (NOT TO SCALE)</div>
+        <div class="lounge-art-stamp">FIG. 05 · FLOOR PLAN (NOT TO SCALE)</div>
       </div>
       <div class="lounge-floorplan-svg">
         <svg width="667" height="1125" viewBox="0 0 667 1125" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2244,11 +2316,11 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 </svg>
       </div>
       <div class="lounge-art-bot">
-        <div class="lounge-art-stamp" style="color: rgba(241,232,212,0.55);">SHEET 01 OF 01 · DO NOT REPRODUCE</div>
+
       </div>
     </div>
     <div class="lounge-copy">
-      <h3>Room to sit, work, and watch</h3>
+
       <p>Most facilities treat the parent as a logistics problem. We treat them as the person paying the bill, because they are. The lounge isn't a hallway, it's a real room with real seating, clear views into every cage, and infrastructure that lets you keep working while your athlete trains.</p>
       <div class="lounge-amen">
         <div class="amen"><span class="amen-num">A</span><span class="amen-text"><strong>Couches & lounge chairs</strong><span>Not benches. Not bleachers.</span></span></div>
@@ -2271,12 +2343,12 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     </div>
     <h2 class="section-title">Simple <em>pricing</em></h2>
     <div class="section-meta">5 LINE ITEMS · 0 FOOTNOTES</div>
+    <p class="section-deck">Pricing you can explain to your spouse in one sentence.</p>
   </div>
 
   <table class="scorecard-tbl">
     
     <tbody>      <tr class="featured">
-        <td class="hide-sm"><span class="sc-pos" style="color:var(--red); border-color:var(--red);">MBR-60</span></td>
         <td class="sc-content">
           <span class="sc-tag">Limited availability</span>
           <div class="sc-name">Founding member 60</div>
@@ -2287,7 +2359,6 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
         </td>
       </tr>
       <tr class="featured">
-        <td class="hide-sm"><span class="sc-pos" style="color:var(--red); border-color:var(--red);">MBR-30</span></td>
         <td class="sc-content">
           <span class="sc-tag">Limited availability</span>
           <div class="sc-name">Founding member 30</div>
@@ -2298,33 +2369,29 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
         </td>
       </tr>
       <tr>
-        <td class="hide-sm"><span class="sc-pos">CCH-60</span></td>
         <td class="sc-content">
-          <div class="sc-name">Individual coached session — 1 hour</div>
+          <div class="sc-name">Individual coached session · 1 hour</div>
           <div class="sc-desc">Book your named coach by the hour. Same price for members and non-members — $99 either way.</div>
         </td>
         <td class="sc-price-cell"><span class="sc-price"><sup>$</sup><span class="num">99</span><span class="per">/hr</span></span></td>
       </tr>
       <tr>
-        <td class="hide-sm"><span class="sc-pos">CCH-30</span></td>
         <td class="sc-content">
-          <div class="sc-name">Individual coached session — 30 min</div>
+          <div class="sc-name">Individual coached session · 30 min</div>
           <div class="sc-desc">Book your named coach for 30 minutes. Same coach, half the time, half the cost.</div>
         </td>
         <td class="sc-price-cell"><span class="sc-price"><sup>$</sup><span class="num">60</span><span class="per">/30 min</span></span></td>
       </tr>
       <tr>
-        <td class="hide-sm"><span class="sc-pos">LNE-60</span></td>
         <td class="sc-content">
-          <div class="sc-name">Lane time — 1 hour</div>
+          <div class="sc-name">Lane time · 1 hour</div>
           <div class="sc-desc">No membership required. Book online or walk in. Swing or pitch for an hour.</div>
         </td>
         <td class="sc-price-cell"><span class="sc-price"><sup>$</sup><span class="num">60</span><span class="per">/hr</span></span></td>
       </tr>
       <tr>
-        <td class="hide-sm"><span class="sc-pos">LNE-30</span></td>
         <td class="sc-content">
-          <div class="sc-name">Lane time — 30 min</div>
+          <div class="sc-name">Lane time · 30 min</div>
           <div class="sc-desc">No membership required. Book online or walk in. Half the time, half the price.</div>
         </td>
         <td class="sc-price-cell"><span class="sc-price"><sup>$</sup><span class="num">30</span><span class="per">/30 min</span></span></td>
@@ -2346,7 +2413,6 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       <div class="exhibit-title">Professional grade <em>equipment and tech</em></div>
     </div>
     <div class="exhibit-meta">
-      PLATE NO. 01 — 04<br>
       IN THE BUILDING · 2026
     </div>
   </div>
@@ -2354,7 +2420,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
   <div class="exhibit-grid">
     <figure class="exhibit-cell">
       <div class="exhibit-img">
-        <span class="exhibit-fig">Fig. 01</span>
+        <span class="exhibit-fig">Fig. 06</span>
         <img src="img/equipment-pitching-machine.jpg" alt="Hack Attack pitching machine" loading="lazy" />
       </div>
       <figcaption class="exhibit-cap">
@@ -2365,7 +2431,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 
     <figure class="exhibit-cell">
       <div class="exhibit-img">
-        <span class="exhibit-fig">Fig. 02</span>
+        <span class="exhibit-fig">Fig. 07</span>
         <img src="img/equipment-hittrax.png" alt="HitTrax system" loading="lazy" />
       </div>
       <figcaption class="exhibit-cap">
@@ -2376,7 +2442,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 
     <figure class="exhibit-cell">
       <div class="exhibit-img">
-        <span class="exhibit-fig">Fig. 03</span>
+        <span class="exhibit-fig">Fig. 08</span>
         <img src="img/photo-3.jpg" alt="Indoor pitching lane" loading="lazy" />
       </div>
       <figcaption class="exhibit-cap">
@@ -2387,7 +2453,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 
     <figure class="exhibit-cell">
       <div class="exhibit-img">
-        <span class="exhibit-fig">Fig. 04</span>
+        <span class="exhibit-fig">Fig. 09</span>
         <img src="img/baseball.jpg" alt="Baseball hitting cage" loading="lazy" />
       </div>
       <figcaption class="exhibit-cap">
@@ -2414,7 +2480,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       </div>
     </div>
     <div class="ticket-form">
-      <div class="counter-bar"><span class="pill"><span class="dot"></span><span style="text-transform:uppercase; letter-spacing:0.14em; font-size:11px;">Now signing</span></span><span class="num"><strong id="counter-taken">5</strong> / 25 spots claimed</span></div>
+      <div class="counter-bar"><span class="pill"><span class="dot"></span><span style="text-transform:uppercase; letter-spacing:0.14em; font-size:11px;">Now signing</span></span><span class="num"><strong id="counter-taken">5</strong> of 25 spots claimed</span></div>
       <div class="tier-select-label">Select your membership</div>
       <div id="tier-error" class="tier-error" style="display:none;">Please select a membership before continuing.</div>
       <div class="tier-select" id="tier-select">
@@ -2493,7 +2559,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       <div class="inning-meta">Status · <strong>Lane live at open</strong></div>
     </div>
     <div class="inning future">
-      <span class="inning-tag">TBD</span>
+      <span class="inning-tag">Hiring now</span>
       <div class="inning-name">Coaching</div>
       <div class="inning-body">Named coaches for hitting, catching, and pitching instruction — bookable by the hour, same price for members and non-members. We're building the roster now.</div>
       <div class="inning-meta">Status · <strong>Hiring now</strong></div>
@@ -2509,7 +2575,6 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     <div class="section-num"><span class="big">06</span>
     </div>
     <h2 class="section-title">Two-out questions <em>Quick answers</em></h2>
-    <div class="section-meta">FAQ · 6 ITEMS</div>
   </div>
 
   <div class="faq-grid">
@@ -2566,7 +2631,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 </clipPath>
 </defs>
 </svg>
-        <span class="foot-name">Have a Day Baseball Co.</span>
+        <span class="foot-name">Have a Day · Baseball Co.</span>
       </div>
       <div class="foot-tag">You train to <em>Have a Day.</em><br>East County San Diego, opening Fall 2026.</div>
     </div>
