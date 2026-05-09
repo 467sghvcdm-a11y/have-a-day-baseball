@@ -1763,6 +1763,8 @@ footer {
   .sc-desc { margin-top: 0.4rem; max-width: 100%; }
   .scorecard-tbl thead th.hide-sm { display: none; }
   .scorecard-tbl tbody td.hide-sm { display: none; }
+  .scorecard-tbl tbody tr.featured td:first-child::before { display: none; }
+  .scorecard-tbl tbody tr.featured { border-left: 4px solid var(--red); padding-left: calc(1.5rem - 4px); }
   .scorecard-tbl thead th, .scorecard-tbl tbody td { padding: 1rem 1.5rem; }
   .scorecard-tbl tbody td:last-child { padding-right: 1.5rem; width: 1%; white-space: nowrap; }
   .scorecard-tbl thead th:last-child { width: 1%; white-space: nowrap; }
