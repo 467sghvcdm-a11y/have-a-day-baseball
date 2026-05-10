@@ -1479,6 +1479,35 @@ section { position: relative; z-index: 2; }
   font-family: var(--serif); font-size: 28px; margin-bottom: 0.5rem;
 }
 .success p { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: rgba(241,232,212,0.85); }
+.success .spot-row-block {
+  align-items: center;
+  border-color: rgba(241,232,212,0.2);
+  margin: 1rem auto 0;
+  max-width: 240px;
+}
+.success .spots-label { color: rgba(241,232,212,0.7); }
+.success .spots-icon.empty { border-color: rgba(241,232,212,0.25); }
+@keyframes spot-fill {
+  0%   { background: transparent; transform: scale(0.5); opacity: 0.4; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { background: var(--red); transform: scale(1); opacity: 1; }
+}
+.spots-icon.filling { animation: spot-fill 0.4s ease-out forwards; }
+.dev-preview-btn {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ───── FAQ ───── */
 .faq {
@@ -2578,7 +2607,39 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       <div class="success" id="success">
         <h3>You're in.</h3>
         <p>Email from Matt within 48 hours · Spot reserved on the founding wall.</p>
+        <div class="spot-row-block">
+          <div class="spots-label">6 OF 25 FOUNDING SPOTS CLAIMED</div>
+          <div class="spots-icons" id="confirm-spot-row">
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled"></span>
+            <span class="spots-icon filled" id="confirm-spot-6"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+            <span class="spots-icon empty"></span>
+          </div>
+        </div>
       </div>
+      <!-- dev: preview confirmation without Stripe roundtrip -->
+      <button class="dev-preview-btn" id="dev-confirm-btn" type="button">Preview confirmation state →</button>
     </div>
   </div>
 </section>
@@ -2956,9 +3017,27 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 
       const n = get();
       if (n < CAP) set(n + 1);
-      form.style.display = 'none';
-      document.getElementById('success').classList.add('active');
+      showConfirmation();
     });
+
+    function showConfirmation() {
+      form.style.display = 'none';
+      const successEl = document.getElementById('success');
+      successEl.classList.add('active');
+      const spot6 = document.getElementById('confirm-spot-6');
+      if (spot6) {
+        spot6.classList.remove('filled');
+        void spot6.offsetWidth; // force reflow so animation restarts cleanly
+        spot6.classList.add('filling');
+        spot6.addEventListener('animationend', () => {
+          spot6.classList.remove('filling');
+          spot6.classList.add('filled');
+        }, { once: true });
+      }
+    }
+
+    const devBtn = document.getElementById('dev-confirm-btn');
+    if (devBtn) devBtn.addEventListener('click', showConfirmation);
   }
 
   // Cross-tab sync
