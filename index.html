@@ -296,16 +296,17 @@ a.diamond-row { text-decoration: none; color: var(--ink); }
   margin: 1rem 0;
 }
 .diamond-svg-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
   gap: 2px;
   width: 100%;
   margin: 0.4rem 0;
 }
-.diamond-svg-row svg {
-  flex: 1;
-  min-width: 0;
+.diamond-svg-row > svg {
+  width: 100%;
   aspect-ratio: 1;
   overflow: visible;
+  display: block;
 }
 .diamond-svg-row polygon.filled  { fill: url(#d-hatch); }
 .diamond-svg-row polygon.next    { fill: none; stroke: var(--red); stroke-width: 1; }
@@ -327,6 +328,33 @@ a.diamond-row { text-decoration: none; color: var(--ink); }
 .diamond-svg-row polygon.filling {
   transform-box: fill-box; transform-origin: center;
   animation: diamond-fill 0.4s ease-out forwards;
+}
+/* annotated diamond wrapper (ON DECK / ← YOUR SPOT) */
+.d-annotated {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.d-annotated > svg {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: visible;
+  display: block;
+}
+.d-annotation {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  line-height: 1;
+  pointer-events: none;
 }
 /* dark background variant (confirmation panel) */
 .success .diamond-row .spots-label  { color: rgba(241,232,212,0.7); }
@@ -2225,12 +2253,16 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       <a href="#founding" class="diamond-row" aria-label="5 of 25 founding spots claimed — click to claim yours">
         <div class="spots-label">5 of 25 Founding Spots Claimed</div>
         <div class="diamond-svg-row" aria-hidden="true">
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="next"   points="5,0 10,5 5,10 0,5"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <!-- 6th: ON DECK -->
+          <div class="d-annotated">
+            <svg viewBox="0 0 10 10"><polygon class="next" points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="d-annotation">On Deck</span>
+          </div>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
@@ -2251,7 +2283,6 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
         </div>
-        <div class="spots-footer">Yours for $159/mo · First year</div>
       </a>
       <div class="hero-cta-row">
         <a href="#founding" class="btn-stamp">Claim My Spot <span class="arrow">→</span></a>
@@ -2585,14 +2616,14 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     </div>
     <div class="ticket-form">
       <div class="diamond-row">
-        <div class="spots-label">5 Claimed · You Are Spot 06</div>
+        <div class="spots-label">5 of 25 Claimed · Your Spot Is Next</div>
         <div class="diamond-svg-row" aria-hidden="true">
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="filled" points="5,0 10,5 5,10 0,5"/></svg>
-          <svg viewBox="0 0 10 10"><polygon class="yours"  points="5,0 10,5 5,10 0,5"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><path d="M5,0.1 L9.85,5 L5,9.9 L0.15,5 Z" fill="#E5343C"/></svg>
+          <svg viewBox="0 0 10 10"><polygon class="next" points="5,0 10,5 5,10 0,5"/></svg>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
           <svg viewBox="0 0 10 10"><polygon class="empty"  points="5,0 10,5 5,10 0,5"/></svg>
