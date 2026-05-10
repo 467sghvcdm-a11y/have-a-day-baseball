@@ -224,24 +224,40 @@ nav {
 .hero-dek strong { font-weight: 600; color: var(--ink); }
 
 .hero-cta-row {
-  display: flex; flex-wrap: wrap; gap: 0.85rem;
-  align-items: center;
+  display: flex; flex-direction: column; gap: 1.25rem;
+  align-items: flex-start;
 }
 .spots-counter {
   display: inline-flex;
   flex-direction: column;
   gap: 0.4rem;
-  padding: 0.6rem 0.85rem;
-  border: 1.5px solid var(--ink-line-2);
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--ink-line-2);
+  border-bottom: 1px solid var(--ink-line-2);
   text-decoration: none;
   color: var(--ink);
   cursor: pointer;
-  margin-left: 1rem;
-  vertical-align: top;
-  max-width: 200px;
-  transition: border-color 0.15s;
+  max-width: 220px;
 }
-.spots-counter:hover { border-color: var(--ink); }
+.spots-counter:hover { opacity: 0.8; }
+.spot-row-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--ink-line-2);
+  border-bottom: 1px solid var(--ink-line-2);
+  margin-bottom: 1rem;
+}
+@keyframes pulse-outline {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229,52,60,0.5); }
+  50% { box-shadow: 0 0 0 3px rgba(229,52,60,0); }
+}
+.spots-icon.yours {
+  background: transparent;
+  border: 1.5px solid var(--red);
+  animation: pulse-outline 1.5s ease-in-out infinite;
+}
 .spots-label {
   font-family: var(--sans);
   font-size: 9px;
@@ -2118,7 +2134,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
         A baseball facility built <em>for you</em>
       </h1>
       <p class="hero-dek" id="hero-dek" style="font-family: &quot;DM Sans&quot;">
-        Three hitting cages and a dedicated pitching lane. A named coach you can book by the hour. A parent lounge with couches, Wi-Fi, and clear views into all of it. <strong><span id="hero-spots-left">5</span> of 25 spots claimed</strong> starting at $159/mo. For your first year.
+        Three hitting cages and a dedicated pitching lane. A named coach you can book by the hour. A parent lounge with couches, Wi-Fi, and clear views into all of it.
       </p>
       <div class="hero-cta-row">
         <a href="#founding" class="btn-stamp">Claim My Spot <span class="arrow">→</span></a>
@@ -2151,7 +2167,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
             <span class="spots-icon empty"></span>
             <span class="spots-icon empty"></span>
           </div>
-          <div class="spots-footer">Yours for $159/mo · First year.</div>
+          <div class="spots-footer">Yours for $159/mo · First year</div>
         </a>
       </div>
     </div>
@@ -2476,13 +2492,42 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       <p>Card on file now. No charge until opening day. Cancel anytime before.</p>
       <div class="ticket-stub-meta">
         <div><span>Section</span><strong>Founding · 01</strong></div>
-        <div><span>Seat</span><strong>6 of 25</strong></div>
+        <div><span>Spot</span><strong>6 of 25</strong></div>
         <div><span>Gate</span><strong>Opens Fall '26</strong></div>
         <div><span>Hold fee</span><strong>$1.00</strong></div>
       </div>
     </div>
     <div class="ticket-form">
-      <div class="counter-bar"><span class="pill"><span class="dot"></span><span style="text-transform:uppercase; letter-spacing:0.14em; font-size:11px;">Now signing</span></span><span class="num"><strong id="counter-taken">5</strong> of 25 spots claimed</span></div>
+      <div class="spot-row-block">
+        <div class="spots-label">5 CLAIMED · YOU ARE SPOT 06</div>
+        <div class="spots-icons">
+          <span class="spots-icon filled"></span>
+          <span class="spots-icon filled"></span>
+          <span class="spots-icon filled"></span>
+          <span class="spots-icon filled"></span>
+          <span class="spots-icon filled"></span>
+          <span class="spots-icon yours"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+          <span class="spots-icon empty"></span>
+        </div>
+      </div>
       <div class="tier-select-label">Select your membership</div>
       <div id="tier-error" class="tier-error" style="display:none;">Please select a membership before continuing.</div>
       <div class="tier-select" id="tier-select">
