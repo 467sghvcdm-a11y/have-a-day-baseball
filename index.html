@@ -295,13 +295,20 @@ a.diamond-row { text-decoration: none; color: var(--ink); }
   padding: 0.5rem 0;
   margin: 1rem 0;
 }
+.diamond-rows-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0.4rem 0;
+}
 .diamond-svg-row {
   display: grid;
   grid-template-columns: repeat(25, 1fr);
   gap: 4px;
   width: 100%;
-  margin: 0.4rem 0;
 }
+.diamond-svg-row--13,
+.diamond-svg-row--12 { grid-template-columns: repeat(13, 1fr); }
 .diamond-svg-row > svg,
 .diamond-svg-row > img {
   width: 100%;
@@ -2254,35 +2261,36 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
       </p>
       <a href="#founding" class="diamond-row" aria-label="5 of 25 founding spots claimed — click to claim yours">
         <div class="spots-label">5 of 25 Founding Spots Claimed</div>
-        <div class="diamond-svg-row" aria-hidden="true">
-          <img src="assets/diamonds/filled1.svg" alt="">
-          <img src="assets/diamonds/filled2.svg" alt="">
-          <img src="assets/diamonds/filled3.svg" alt="">
-          <img src="assets/diamonds/filled4.svg" alt="">
-          <img src="assets/diamonds/filled5.svg" alt="">
-          <div class="d-annotated">
+        <div class="diamond-rows-wrap" aria-hidden="true">
+          <div class="diamond-svg-row diamond-svg-row--13">
+            <img src="assets/diamonds/filled1.svg" alt="">
+            <img src="assets/diamonds/filled2.svg" alt="">
+            <img src="assets/diamonds/filled3.svg" alt="">
+            <img src="assets/diamonds/filled4.svg" alt="">
+            <img src="assets/diamonds/filled5.svg" alt="">
             <img src="assets/diamonds/heavy-empty.svg" alt="">
-            <span class="d-annotation">On Deck</span>
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
           </div>
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
+          <div class="diamond-svg-row diamond-svg-row--12">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+          </div>
         </div>
       </a>
       <div class="hero-cta-row">
@@ -2618,32 +2626,36 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     <div class="ticket-form">
       <div class="diamond-row">
         <div class="spots-label">5 of 25 Claimed · Your Spot Is Next</div>
-        <div class="diamond-svg-row" aria-hidden="true">
-          <img src="assets/diamonds/filled1.svg" alt="">
-          <img src="assets/diamonds/filled2.svg" alt="">
-          <img src="assets/diamonds/filled3.svg" alt="">
-          <img src="assets/diamonds/filled4.svg" alt="">
-          <img src="assets/diamonds/filled5.svg" alt="">
-          <img src="assets/diamonds/heavy-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
-          <img src="assets/diamonds/light-empty.svg" alt="">
+        <div class="diamond-rows-wrap" aria-hidden="true">
+          <div class="diamond-svg-row diamond-svg-row--13">
+            <img src="assets/diamonds/filled1.svg" alt="">
+            <img src="assets/diamonds/filled2.svg" alt="">
+            <img src="assets/diamonds/filled3.svg" alt="">
+            <img src="assets/diamonds/filled4.svg" alt="">
+            <img src="assets/diamonds/filled5.svg" alt="">
+            <img src="assets/diamonds/heavy-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+          </div>
+          <div class="diamond-svg-row diamond-svg-row--12">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+            <img src="assets/diamonds/light-empty.svg" alt="">
+          </div>
         </div>
       </div>
       <div class="tier-select-label">Select your membership</div>
