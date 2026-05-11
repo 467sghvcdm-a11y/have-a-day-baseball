@@ -1582,7 +1582,7 @@ section { position: relative; z-index: 2; }
 }
 .spots-icon.filling { animation: spot-fill 0.4s ease-out forwards; }
 .dev-preview-btn {
-  display: block;
+  display: none;
   margin-top: 0.75rem;
   font-family: var(--mono);
   font-size: 10px;
@@ -1832,13 +1832,15 @@ footer {
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--cream); margin-bottom: 0.85rem;
 }
-.foot-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.foot-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
 .foot-list a, .foot-list span {
   font-family: var(--mono); font-size: 12px;
   letter-spacing: 0.04em;
   color: rgba(241,232,212,0.75);
   text-decoration: none;
   transition: color 0.15s;
+  display: inline-block;
+  padding: 0.75rem 0;
 }
 .foot-list a:hover { color: var(--cream); }
 .foot-bot {
@@ -2251,6 +2253,9 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
   </div>
   <a href="#founding" class="nav-cta">Claim my spot →</a>
 </nav>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -2820,6 +2825,8 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     </div>
   </div>
 </section>
+
+</main><!-- /main-content -->
 
 <!-- FOOTER -->
 <footer>
