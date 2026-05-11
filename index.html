@@ -194,6 +194,7 @@ nav {
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
   color: var(--ink);
+  text-wrap: balance;
 }
 .hero-headline em {
   font-style: italic;
@@ -884,6 +885,7 @@ section { position: relative; z-index: 2; }
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--red);
   display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 .exhibit-eyebrow::before {
   content: ""; width: 24px; height: 1px; background: var(--red);
@@ -1380,6 +1382,7 @@ section { position: relative; z-index: 2; }
   padding: 2.5rem;
   display: flex; flex-direction: column; gap: 0;
 }
+.ticket-form .diamond-row { margin-top: 0; }
 .counter-bar {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0.65rem 1rem;
@@ -1862,6 +1865,7 @@ footer {
 
   .section-head { grid-template-columns: 1fr; padding: 1.25rem 1.5rem; gap: 0.5rem; }
   .section-title { font-size: 48px; }
+  .exhibit-title { font-size: 48px; }
   .section-meta { text-align: left; }
 
   .premise { grid-template-columns: 1fr; }
@@ -2235,7 +2239,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 <nav>
   <a href="#top" class="nav-brand">
     <span class="nav-brand-mark"><svg width="270" height="267" viewBox="0 0 270 267" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M229.983 216.823C248.225 209.893 237.144 220.268 234.201 223.437C205.364 254.493 162.063 271.468 116.547 265.191L114.821 264.943C110.894 264.351 98.8545 262.74 114.376 257.903C127.3 253.445 140.983 248.48 155.405 242.928C182.499 232.497 204.668 223.981 229.983 216.823ZM17.9668 67.8377C32.4122 60.6886 48.1793 63.3625 71.9512 70.8709C96.8583 78.7379 128.917 91.3203 170.505 95.7273C197.1 98.5455 216.984 97.9168 231.875 93.6404C240.162 91.2603 246.882 87.7486 252.294 83.2098C254.829 81.0839 257.663 77.0049 260.101 84.7547C268.318 105.334 271.471 128.207 268.237 151.655L267.99 153.358C266.158 165.494 262.715 177.005 257.908 187.707C257.324 189.008 256.136 189.94 254.742 190.245C214.15 199.111 185.195 210.246 148.293 224.453C120.617 235.108 95.7232 243.558 73.7461 250.396C72.5934 250.755 71.3427 250.641 70.2813 250.066C23.0709 224.478 -5.93156 172.255 1.0264 116.539L1.25101 114.832C3.50228 98.5095 8.65853 83.293 16.1309 69.6199C16.5493 68.8543 17.1849 68.2247 17.9668 67.8377ZM115.668 105.548C114.607 101.3 109 98.4642 98.1299 99.5125C81.7874 101.089 29.3898 115.091 30.8545 130.283C31.0885 132.709 31.9564 134.429 33.458 135.444C32.8859 136.788 32.8225 137.953 32.9209 138.974C33.5365 145.358 42.4141 146.435 48.8467 145.814C56.844 145.043 59.9272 140.622 60.7871 136.803C55.4361 135.901 48.5081 135.023 42.0401 133.457C56.0283 125.665 82.519 117.769 98.5274 114.55C101.155 114.163 103.418 113.673 105.359 113.123C105.292 113.299 105.225 113.48 105.161 113.664C102.489 121.125 95.8317 144.28 93.1084 152.527C90.3867 153.111 87.5604 153.969 84.9961 154.794C80.2604 156.398 82.5231 164.179 85.1465 167.762C86.3109 167.494 87.4626 167.097 88.627 166.828C83.1694 184.491 74.8769 218.169 75.0489 219.84C75.5405 224.586 85.2544 224.987 88.2647 224.628C92.2888 211.031 101.838 176.682 106.634 162.863C111.061 162.09 116.055 161.6 120.997 160.914C120.504 162.498 120.003 164.14 119.63 165.455C115.717 178.913 113.39 190.143 114.023 196.178C114.605 201.709 123.796 202.638 126.747 202.282C127.671 193.768 133.023 176.698 139.394 156.96C144.112 142.514 148.679 129.104 151.814 121.85C153.639 118.193 142.765 112.375 138.403 112.901C133.324 125.492 128.248 139.106 123.99 151.719C123.511 151.498 122.974 151.347 122.521 151.228C118.867 150.495 114.992 150.178 111.144 150.117C115.744 136.971 123.04 112.313 122.881 110.772C122.695 108.976 120.912 107.111 118.004 105.899C117.366 105.71 116.564 105.572 115.668 105.548ZM226.609 117C226.094 110.908 223.078 105.805 210.164 107.381C197.811 108.888 171.625 113.793 162.456 130.184C161.243 132.384 160.966 135.723 162.503 138.043C162.289 139.095 162.301 140.119 162.397 140.905C163.082 146.52 168.902 147.519 173.057 147.012C178.222 146.382 180.03 142.515 180.419 139.162C177.012 138.324 172.818 137.582 168.668 136.264C174.083 132.071 181.938 128.263 190.689 125.258C182.967 144.662 175.72 163.807 175.795 173.287C173.981 177.295 168.837 182.747 163.737 185.708C166.333 176.7 171.552 163.296 174.443 158.142C174.179 155.279 166.876 152.564 164.889 156.248L163.225 159.621C162.537 156.991 159.779 154.436 154.788 155.054C146.856 156.035 135.207 171.592 136.794 184.426C137.136 187.188 138.213 189.318 139.972 190.367C140.602 193.999 143.258 199.37 147.803 198.808C150.476 198.478 153.679 194.372 156.716 188.929L157.595 189.454C158.526 192.596 161.305 196.776 164.681 196.268C168.593 195.703 177.729 184.272 179.393 179.085C180.141 179.475 180.949 179.788 181.759 180.029C183.953 187.739 187.826 192.396 192.88 191.779C215.677 188.997 235.059 145.146 232.4 123.359C231.918 120.341 229.258 118.158 226.609 117ZM160.851 160.91C159.573 166.678 153.603 183.522 143.383 188.678C143.939 180.736 150.064 164.416 160.851 160.91ZM221.567 118.64C223.135 138.964 201.412 177.63 188.722 179.179L187.823 179.289C191.758 162.966 206.248 126.664 205.864 123.519C205.782 122.846 205.335 121.989 204.79 121.258C210.337 120.011 216.037 119.087 221.567 118.64ZM42.0967 36.2234C70.7097 9.5483 110.882 -4.50658 152.944 1.29471L154.667 1.54276C193.256 7.35846 225.645 28.8697 246.081 58.5701C246.339 58.9447 246.338 59.4337 246.124 59.8348C242.582 66.4569 237.082 71.5461 226.41 74.6111C215.166 77.8402 198.284 78.7634 172.591 76.0408C133.55 71.9036 104.108 60.2685 77.9131 51.9949C66.8376 48.4967 55.9708 45.4643 45.2823 44.3328C38.6494 43.3586 31.023 46.2631 42.0967 36.2234Z" fill="#E5343C"/></svg></span>
-    <span class="nav-wordmark">Have a Day · Baseball Co.</span>
+    <span class="nav-wordmark">Have a Day Baseball Co.</span>
   </a>
   <div class="nav-meta">
     <span>Vol. 01 · Issue 01</span>
@@ -2625,7 +2629,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
     </div>
     <div class="ticket-form">
       <div class="diamond-row">
-        <div class="spots-label">5 of 25 Claimed · Your Spot Is Next</div>
+        <div class="spots-label">5 of 25 Claimed · Spot 6 is yours</div>
         <div class="diamond-rows-wrap" aria-hidden="true">
           <div class="diamond-svg-row diamond-svg-row--13">
             <img src="assets/diamonds/filled1.svg" alt="">
@@ -2677,19 +2681,19 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
         <div class="field-row" style="margin-bottom: 0.75rem;">
           <div class="field">
             <label for="fn">First name</label>
-            <input id="fn" type="text" placeholder="Alex" required>
+            <input id="fn" type="text" required>
             <span class="field-error" id="fn-error">First name is required.</span>
           </div>
           <div class="field">
             <label for="ln">Last name</label>
-            <input id="ln" type="text" placeholder="Ramirez" required>
+            <input id="ln" type="text" required>
             <span class="field-error" id="ln-error">Last name is required.</span>
           </div>
         </div>
         <div class="field-row single" style="margin-bottom: 0.75rem;">
           <div class="field">
             <label for="em">Email</label>
-            <input id="em" type="email" placeholder="you@email.com" required>
+            <input id="em" type="email" required>
             <span class="field-error" id="em-error">Enter a valid email address.</span>
           </div>
         </div>
@@ -2840,7 +2844,7 @@ body, nav, .ticker, .hero, .lineup-side, .lounge-art, footer,
 </clipPath>
 </defs>
 </svg>
-        <span class="foot-name">Have a Day · Baseball Co.</span>
+        <span class="foot-name">Have a Day Baseball Co.</span>
       </div>
       <div class="foot-tag">You train to <em>Have a Day.</em><br>East County San Diego, opening Fall 2026.</div>
     </div>
